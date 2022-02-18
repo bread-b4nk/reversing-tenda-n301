@@ -6,6 +6,7 @@
 - The [download page for the firmware](https://www.tendacn.com/us/download/detail-3977.html)
 - https://portswigger.net/daily-swig/unpatched-tenda-wifi-router-vulnerabilities-leave-home-networks-wide-open-to-abuse
 - Network Processor Datasheet: RTL8196E-CG http://www.hytic.net/upload/files/2015/09/REALTEK-RTL8196E.pdf
+- https://reverseengineering.stackexchange.com/questions/15088/lzma-file-format-not-recognized-details-enclosed
 
 ## Hardware
 - Network Processor: RTL8196E-CG
