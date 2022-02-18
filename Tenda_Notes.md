@@ -1,10 +1,18 @@
-**Notes to Tenda**
+# Reversing Tenda N301
 
+## OSINT
 
+- The [Tenda N301 Spec](https://www.tendacn.com/product/specification/N301.html)
+- The [download page for the firmware](https://www.tendacn.com/us/download/detail-3977.html)
+- https://portswigger.net/daily-swig/unpatched-tenda-wifi-router-vulnerabilities-leave-home-networks-wide-open-to-abuse
 
-6.0 Firmware
+## Firmware
 
-- Strings
+- looking at the latest version (6.0), downloaded from https://www.tendacn.com/us/download/detail-3977.html
+
+### Static Analysis
+
+- Calling `strings` gives
 
 ```
 Xdecompressing kernel:
@@ -24,15 +32,22 @@ LZMA: Decoding error = %d
  done, booting the kernel.
 ```
 
-https://www.tendacn.com/product/specification/N301.html
-
-https://portswigger.net/daily-swig/unpatched-tenda-wifi-router-vulnerabilities-leave-home-networks-wide-open-to-abuse
+- Calling `binwalk -eMd3` gave us a file system, the output of that is in `binwalk.out`, and it produced `_2834.extracted`
 
 ```
-$ binwalk N301.bin 
+$ binwalk -emd3 N301.bin > binwalk.out
 
 DECIMAL    HEXADECIMAL   DESCRIPTION
 
 10292     0x2834     LZMA compressed data, properties: 0x5D, dictionary size: 8388608 bytes, uncompressed size: 3039160 bytes
+```
+
+- Trying to find what architecture:
+
+```bash
+kris@bread-bank:~/Projects/reversing-tenda-n301$ cat binwalk.out | grep arch
+0             0x0             eCos kernel exception handler, architecture: MIPS, exception vector table base address: 0x80000200
+128           0x80            eCos kernel exception handler, architecture: MIPS, exception vector table base address: 0x80000200
+
 ```
 
