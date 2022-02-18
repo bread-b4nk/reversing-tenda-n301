@@ -5,6 +5,13 @@
 - The [Tenda N301 Spec](https://www.tendacn.com/product/specification/N301.html)
 - The [download page for the firmware](https://www.tendacn.com/us/download/detail-3977.html)
 - https://portswigger.net/daily-swig/unpatched-tenda-wifi-router-vulnerabilities-leave-home-networks-wide-open-to-abuse
+- Network Processor Datasheet: RTL8196E-CG http://www.hytic.net/upload/files/2015/09/REALTEK-RTL8196E.pdf
+
+## Hardware
+- Network Processor: RTL8196E-CG
+- WLan Chip:
+- SD Ram: W9864G6KH-6
+- ???: letters on chip: H25S80 BG 20k0 AP2N113
 
 ## Firmware
 
