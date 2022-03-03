@@ -59,3 +59,17 @@ kris@bread-bank:~/Projects/reversing-tenda-n301$ cat binwalk.out | grep arch
 
 ```
 
+* Binwalk -- examining for encryption
+
+```
+$ binwalk -E N301.bin
+
+DECIMAL       HEXADECIMAL     ENTROPY
+--------------------------------------------------------------------------------
+0             0x0             Falling entropy edge (0.613818)
+10240         0x2800          Rising entropy edge (0.957594)
+952320        0xE8800         Falling entropy edge (0.002793)
+```
+
+
+
