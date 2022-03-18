@@ -92,4 +92,4 @@ binwalk -eMd3 N301.bin
 
 ```
 
-Looking at `tenda.bin`
+Looking at the extracte `tenda.bin`
