@@ -21,6 +21,8 @@ When Flash is used, the system will boot from KSEG1 at virtual address 0xBFC0_00
 - SD Ram: W9864G6KH-6
 - ???: letters on chip: H25S80 BG 20k0 AP2N113
 
+![router-inside](tenda-inside.jpg)
+
 ## Firmware
 
 - looking at the latest version (6.0), downloaded from https://www.tendacn.com/us/download/detail-3977.html
@@ -92,4 +94,4 @@ binwalk -eMd3 N301.bin
 
 ```
 
-Looking at the extracte `tenda.bin`
+Looking at the extracted `tenda.bin`
