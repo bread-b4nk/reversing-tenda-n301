@@ -31,3 +31,27 @@ Perhaps most importantly, we found the [official datasheet for the RTL8196E-CG n
 
 It also listed the architecture of the chip as being MIPS, which was an important step for later static analysis.  However, with the many different varieties of MIPS in existance, further exploration was required.
 
+### Step 3: Static Analysis
+
+As a classic first step, we naturally called `strings` on the firmware update that we downloaded.  Among the large amount of useless output was the text:
+
+```
+Xdecompressing kernel:
+done decompressing kernel.
+start address: 0x%08x
+0123456789abcdefghijklmnopqrstuvwxyz
+0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ
+<NULL>
+ -- System halted
+Uncompressing...
+LZMA: Too big uncompressed stream
+LZMA: Incorrect stream properties
+Malloc error
+Memory error
+Out of memory
+LZMA: Decoding error = %d
+ done, booting the kernel.
+```
+
+
+
