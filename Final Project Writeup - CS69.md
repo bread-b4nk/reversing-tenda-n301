@@ -8,7 +8,7 @@ Our group was composed of Lucas Wilbur, Kris (Chavin) Udomwongsa, and Tian Xia.
 
 ### Step 1: Physical Analysis
 
-To begin our reverse engineering, we opened the Tenda n301 router and examined contents inside.  For each chip or other internal component, we closely inspected it to find any visible writing or information.  Then, we turned to research on the internet to gain a more complete picture of what the role of each chip was.
+To begin our reverse engineering, we opened the Tenda n301 router and examined contents inside.  For each chip or other internal component, we closely inspected it to find any visible writing or information.  Then, we turned to research on the internet to gain a more complete picture of what the role of each component was.
 
 | Hardware Object Purpose | Serial # / Other Writing |
 | :---------------------: | :----------------------: |
@@ -597,7 +597,7 @@ After loading the decompressed firmware into Ghidra, we commenced static analysi
 
 Between `0x002b0ee8` and `0x002b5d6`, we see many pngs and a gif; these are most likely used in the user interface presented when you connect to the router to set it up.  Directly after these addresses is a section of HTML stored as a string.  This, too, seems like it's is used when setting up or configuring the router, as indicated by the inclusion of text like "Operating Mode" and "Blacklisted Devices".
 
-Furthermore we found a very long section of JavaScript, stored as a string, from memory address `0x001ddae0` onwards.  However, based on our analysis, we did not discover any locations in the firmwhere that touched the JavaScript string, which would imply that this JavaScript is a file stored in the firmware.  Thus, this further supports our hypothesis that the firmware still contains multiple files.  To see an example of one of the segments of JavaScript, please see this snippet below (which we have manually added some newlines to for clarity about the various functions it performs):
+Furthermore, we found a very long section of JavaScript, stored as a string, from memory address `0x001ddae0` onwards.  However, based on our analysis, we did not discover any locations in the firmware that touched the JavaScript string, which would imply that this JavaScript is a file stored in the firmware.  Thus, this further supports our hypothesis that the firmware still contains multiple files.  To see an example of one of the segments of JavaScript, please see this snippet below (which we manually added some newlines to for clarity about the various functions it performs):
 
 ```javascript
 define((function(require,exports,module){
@@ -685,7 +685,7 @@ function createUrlList(arry){var i=0,len=arry.length,str=\"\";for(i=0;i<len;i++)
 
 Based on our cursory analysis of this JavaScript, this seems like generic code tasked with managing interactions between different devices and different URLs.  This, of course, is a very standard and expected action for a router to be taking.  Due to our group having limited knowledge about networking, our understanding of the code was ultimately limited.
 
-Apart from various strings we found in the firmware update, there are also many memory touches that we examined that went beyond the addresses of the firmware.  These touches, for example, frequently accessed addresses from `0xfffffff8000000` onwards.  These addresses might be data or functions, but we think it most likely that this is data being stored either in ROM/RAM, or on another chip in the device.  In that case, the address just shows us that it's accessing another component of the circuit.
+Apart from various strings we found in the firmware update, there are also many memory touches that we examined which went beyond the addresses of the firmware.  These touches, for example, frequently accessed addresses from `0xfffffff8000000` onwards.  These addresses might be data or functions, but we think it most likely that this is data being stored either in ROM/RAM, or on another chip in the device.  In that case, the address just shows us that it's accessing another component in the router's circuit.
 
 ## Conclusions
 
